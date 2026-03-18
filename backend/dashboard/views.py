@@ -1,13 +1,13 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
-from .models import Dashboard
+from .models import DashboardLayout
 from .serializers import DashboardConfigSerializer
 
 
 class DashboardConfigView(APIView):
     def get(self, request):
-        cfg = Dashboard.objects.order_by("-updated_at").first()
+        cfg = DashboardLayout.objects.order_by("-updated_at").first()
 
         if not cfg:
             return Response(
@@ -18,7 +18,7 @@ class DashboardConfigView(APIView):
         return Response(DashboardConfigSerializer(cfg).data)
 
     def put(self, request):
-        cfg = Dashboard.objects.order_by("-updated_at").first()
+        cfg = DashboardLayout.objects.order_by("-updated_at").first()
 
         if not cfg:
             serializer = DashboardConfigSerializer(data=request.data)

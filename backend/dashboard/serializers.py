@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Dashboard
+from .models import DashboardLayout
 
 
 class DashboardConfigSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Dashboard
+        model = DashboardLayout
         fields = "__all__"

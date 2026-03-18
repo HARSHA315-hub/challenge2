@@ -6,7 +6,7 @@ import ConfigureDashboard from "./pages/ConfigureDashboard";
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-slate-950 text-slate-100">
+      <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100">
 
         {/* HEADER */}
         <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur">
@@ -28,16 +28,16 @@ function App() {
             </div>
 
             {/* NAVIGATION */}
-            <nav className="flex items-center gap-2 text-sm">
+            <nav className="flex items-center gap-6 text-sm font-medium">
 
               <NavLink
                 to="/"
                 end
                 className={({ isActive }) =>
-                  `px-4 py-2 rounded-lg font-medium transition ${
+                  `px-4 py-2 rounded-xl transition-all duration-200 ${
                     isActive
-                      ? "bg-slate-800 text-white shadow"
-                      : "text-slate-300 hover:bg-slate-900 hover:text-white"
+                      ? "bg-gradient-to-r from-emerald-400 to-cyan-400 text-black shadow-lg"
+                      : "text-slate-300 hover:bg-slate-800 hover:text-white"
                   }`
                 }
               >
@@ -47,10 +47,10 @@ function App() {
               <NavLink
                 to="/orders"
                 className={({ isActive }) =>
-                  `px-4 py-2 rounded-lg font-medium transition ${
+                  `px-4 py-2 rounded-xl transition-all duration-200 ${
                     isActive
-                      ? "bg-slate-800 text-white shadow"
-                      : "text-slate-300 hover:bg-slate-900 hover:text-white"
+                      ? "bg-gradient-to-r from-purple-400 to-pink-400 text-black shadow-lg"
+                      : "text-slate-300 hover:bg-slate-800 hover:text-white"
                   }`
                 }
               >
@@ -60,10 +60,10 @@ function App() {
               <NavLink
                 to="/configure-dashboard"
                 className={({ isActive }) =>
-                  `px-4 py-2 rounded-lg font-medium transition ${
+                  `px-4 py-2 rounded-xl transition-all duration-200 ${
                     isActive
-                      ? "bg-emerald-500 text-black shadow hover:bg-emerald-400"
-                      : "text-emerald-300 hover:bg-emerald-500/10 hover:text-emerald-200"
+                      ? "bg-gradient-to-r from-orange-400 to-red-400 text-black shadow-lg"
+                      : "text-orange-300 hover:bg-orange-500/10 hover:text-orange-200"
                   }`
                 }
               >
@@ -75,7 +75,7 @@ function App() {
         </header>
 
         {/* MAIN CONTENT */}
-        <main className="mx-auto max-w-7xl px-6 py-8">
+        <main className="mx-auto max-w-7xl px-6 py-8 flex-1">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/orders" element={<Orders />} />
